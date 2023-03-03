@@ -23,7 +23,7 @@ class ProduktapiApplicationTests {
 	@Test
 	public void webShopTitle() {
 		// Skapa en instans av Chrome-webbläsaren med Selenium
-		System.setProperty("webdriver.edge.driver", "C:\\WebDriver\\bin\\msedgedriver.exe");
+		//System.setProperty("webdriver.edge.driver", "C:\\WebDriver\\bin\\msedgedriver.exe");
 		WebDriver driver = new EdgeDriver();
 
 		// Gå till webbplatsen som ska testas
@@ -53,7 +53,7 @@ class ProduktapiApplicationTests {
 
 	@Test
 	public void checkIfTheBackPackPriceIsRight() {
-		System.setProperty("webdriver.edge.driver", "C:\\WebDriver\\bin\\msedgedriver.exe");
+		//System.setProperty("webdriver.edge.driver", "C:\\WebDriver\\bin\\msedgedriver.exe");
 		WebDriver driver = new EdgeDriver();
 
 		driver.get("https://java22.netlify.app/");
@@ -72,7 +72,7 @@ class ProduktapiApplicationTests {
 	@Test
 	public void checkImagesOnProducts() {
 		// Set up the driver
-		System.setProperty("webdriver.edge.driver", "C:\\WebDriver\\bin\\msedgedriver.exe");
+		//System.setProperty("webdriver.edge.driver", "C:\\WebDriver\\bin\\msedgedriver.exe");
 		WebDriver driver = new EdgeDriver();
 
 		// Navigate to the web page to be tested
@@ -100,14 +100,13 @@ class ProduktapiApplicationTests {
 				break;
 			}
 		}
-
 		// Quit the driver
 		driver.quit();
 	}
 
 	@Test
 	public void checkIfTheBackPackPriceIsRightTimeoutException() {
-		System.setProperty("webdriver.edge.driver", "C:\\WebDriver\\bin\\msedgedriver.exe");
+		//System.setProperty("webdriver.edge.driver", "C:\\WebDriver\\bin\\msedgedriver.exe");
 		WebDriver driver = new EdgeDriver();
 
 		try {
