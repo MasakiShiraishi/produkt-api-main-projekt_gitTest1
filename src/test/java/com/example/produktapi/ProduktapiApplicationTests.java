@@ -71,7 +71,7 @@ class ProduktapiApplicationTests {
 
 	@Test
 	public void checkIfTheBackPackPriceIsRight1() {
-		System.setProperty("webdriver.chrome.driver", "C:\\WebDriver\\bin\\chromedriver.exe");
+		//System.setProperty("webdriver.chrome.driver", "C:\\WebDriver\\bin\\chromedriver.exe");
 		WebDriver driver = new ChromeDriver();
 
 		driver.get("https://java22.netlify.app/");
