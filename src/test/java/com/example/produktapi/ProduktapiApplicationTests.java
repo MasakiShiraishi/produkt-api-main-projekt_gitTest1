@@ -82,7 +82,7 @@ class ProduktapiApplicationTests {
 		String text = waiter.getText();
 		String digits = text.replaceAll("[^0-9.]", "");
 
-		assertEquals("109.9", digits);
+		assertEquals("109.95", digits);
 		System.out.println("TEST is text: " + text);
 		System.out.println("Price is: " + digits);
 		driver.quit();
