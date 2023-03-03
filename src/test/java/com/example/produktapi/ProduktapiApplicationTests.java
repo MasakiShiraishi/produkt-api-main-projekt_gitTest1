@@ -20,11 +20,11 @@ import static org.junit.jupiter.api.Assertions.assertTrue;
 
 @SpringBootTest
 class ProduktapiApplicationTests {
-/*
+
 	@Test
 	public void webShopTitle() {
 		// Skapa en instans av Chrome-webbläsaren med Selenium
-		WebDriver driver = new ChromeDriver();
+		WebDriver driver = new EdgeDriver();
 
 		// Gå till webbplatsen som ska testas
 		driver.get("https://java22.netlify.app/");
@@ -50,10 +50,10 @@ class ProduktapiApplicationTests {
 		driver.quit();
 
 	}
-  /*
+
 	@Test
 	public void checkIfTheBackPackPriceIsRight() {
-		WebDriver driver = new ChromeDriver();
+		WebDriver driver = new EdgeDriver();
 
 		driver.get("https://java22.netlify.app/");
 
@@ -67,7 +67,7 @@ class ProduktapiApplicationTests {
 		System.out.println("TEST is text: " + text);
 		System.out.println("Price is: " + digits);
 		driver.quit();
-	}*/
+	}
 /*
 	@Test
 	public void checkIfTheBackPackPriceIsRight1() {
