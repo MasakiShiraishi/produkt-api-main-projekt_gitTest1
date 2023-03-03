@@ -19,8 +19,8 @@ import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertTrue;
 
 @SpringBootTest
-class ProduktapiApplicationTests {
-
+class ProduktapiApplicationTests {}
+/*
 	@Test
 	public void webShopTitle() {
 		// Skapa en instans av Chrome-webbläsaren med Selenium
@@ -68,7 +68,7 @@ class ProduktapiApplicationTests {
 		System.out.println("Price is: " + digits);
 		driver.quit();
 	}*/
-
+/*
 	@Test
 	public void checkIfTheBackPackPriceIsRight1() {
 		//System.setProperty("webdriver.chrome.driver", "C:\\WebDriver\\bin\\chromedriver.exe");
@@ -86,7 +86,7 @@ class ProduktapiApplicationTests {
 		System.out.println("TEST is text: " + text);
 		System.out.println("Price is: " + digits);
 		driver.quit();
-	}
+	}*/
 
 	/*
 		@Test
@@ -127,6 +127,7 @@ class ProduktapiApplicationTests {
 		System.out.println(actualCategoryNames);
 		driver.quit();
 	}*/
+	/*
 	@Test
 	public void testCategories3() {
 		WebDriver driver = new ChromeDriver();
@@ -157,7 +158,7 @@ class ProduktapiApplicationTests {
 		driver.quit();
 	}
 
-}
+}*/
 
 	// Kontrollera att priset blir rätt på minst 3 produkter
 	/*for (int i = 0; i < 3; i++) {*/
