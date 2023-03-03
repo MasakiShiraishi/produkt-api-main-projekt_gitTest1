@@ -2,6 +2,7 @@ package com.example.produktapi;
 
 import org.junit.jupiter.api.Test;
 import org.openqa.selenium.By;
+import org.openqa.selenium.TimeoutException;
 import org.openqa.selenium.WebDriver;
 
 import org.openqa.selenium.WebElement;
@@ -103,9 +104,9 @@ class ProduktapiApplicationTests {
 		// Quit the driver
 		driver.quit();
 	}
-	/*
+
 	@Test
-	public void checkIfTheBackPackPriceIsRight() {
+	public void checkIfTheBackPackPriceIsRightTimeoutException() {
 		System.setProperty("webdriver.edge.driver", "C:\\WebDriver\\bin\\msedgedriver.exe");
 		WebDriver driver = new EdgeDriver();
 
@@ -128,7 +129,7 @@ class ProduktapiApplicationTests {
 		} finally {
 			driver.quit();
 		}
-	}*/
+	}
 /*
 	@Test
 	public void checkIfTheBackPackPriceIsRight1() {
