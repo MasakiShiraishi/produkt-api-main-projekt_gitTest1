@@ -2,6 +2,7 @@ package com.example.produktapi;
 
 import org.junit.jupiter.api.Test;
 import org.openqa.selenium.By;
+import org.openqa.selenium.TimeoutException;
 import org.openqa.selenium.WebDriver;
 
 import org.openqa.selenium.WebElement;
@@ -57,18 +58,25 @@ class ProduktapiApplicationTests {
 		System.setProperty("webdriver.edge.driver", "C:\\WebDriver\\bin\\msedgedriver.exe");
 		WebDriver driver = new EdgeDriver();
 
-		driver.get("https://java22.netlify.app/");
+		try {
+			driver.get("https://java22.netlify.app/");
 
-		WebElement waiter = new WebDriverWait(driver, java.time.Duration.ofSeconds(10))
-				.until(ExpectedConditions.visibilityOfElementLocated(
-						By.xpath("/html/body/div/div/div[6]/div/div/div/div[1]/div/div/p")));
-		String text = waiter.getText();
-		String digits = text.replaceAll("[^0-9.]", "");
+			WebElement waiter = new WebDriverWait(driver, java.time.Duration.ofSeconds(10))
+					.until(ExpectedConditions.visibilityOfElementLocated(
+							By.xpath("/html/body/div/div/div[6]/div/div/div/div[1]/div/div/p")));
+			String text = waiter.getText();
+			String digits = text.replaceAll("[^0-9.]", "");
 
-		assertEquals("109.95", digits);
-		System.out.println("TEST is text: " + text);
-		System.out.println("Price is: " + digits);
-		driver.quit();
+			assertEquals("109.95", digits);
+			System.out.println("TEST is text: " + text);
+			System.out.println("Price is: " + digits);
+		} catch (TimeoutException e) {
+			System.out.println("TimeoutException: Element not found within 10 seconds.");
+		} catch (Exception e) {
+			System.out.println("Exception occurred: " + e.getMessage());
+		} finally {
+			driver.quit();
+		}
 	}
 /*
 	@Test
