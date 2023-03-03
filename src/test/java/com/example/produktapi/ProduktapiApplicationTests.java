@@ -106,6 +106,7 @@ class ProduktapiApplicationTests {
 
 			driver.quit();
 		}*/
+	/*
 	@Test
 	public void testCategories2() {
 		//System.setProperty("webdriver.chrome.driver", "C:\\WebDriver\\bin\\chromedriver.exe");
@@ -125,8 +126,8 @@ class ProduktapiApplicationTests {
 		assertEquals(expectedCategoryNames, actualCategoryNames);
 		System.out.println(actualCategoryNames);
 		driver.quit();
-	}
-	/*@Test
+	}*/
+	@Test
 	public void testCategories3() {
 		WebDriver driver = new ChromeDriver();
 		driver.get("https://java22.netlify.app/");
@@ -154,7 +155,7 @@ class ProduktapiApplicationTests {
 		assertEquals(expectedCategoryNames, actualCategoryNames);
 		System.out.println("Test categories are: " + actualCategoryNames);
 		driver.quit();
-	}*/
+	}
 
 }
 
