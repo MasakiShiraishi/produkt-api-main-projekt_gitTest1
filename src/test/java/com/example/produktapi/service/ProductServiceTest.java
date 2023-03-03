@@ -146,14 +146,14 @@ class ProductServiceTest {
         // given
         int productId = 1;
         Product productToUpdate = new Product("updatedTitle", 20.0, "category", "description", "image_url");
-
         when(repository.findById(productId)).thenReturn(Optional.empty());
 
         // when
         EntityNotFoundException exception = assertThrows(EntityNotFoundException.class, () -> underTest.updateProduct(productToUpdate, productId));
 
         // then
-        assertEquals(exception.getMessage(), "Product not found with id: " + productId);
+        String expectedMessage = "Produkt med id " + productId + " hittades inte";
+        assertEquals(expectedMessage, exception.getMessage());
         verify(repository, times(1)).findById(productId);
         verify(repository, never()).save(any());
     }
