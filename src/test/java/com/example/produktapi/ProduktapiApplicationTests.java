@@ -19,8 +19,8 @@ import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertTrue;
 
 @SpringBootTest
-class ProduktapiApplicationTests {}
-/*
+class ProduktapiApplicationTests {
+
 	@Test
 	public void webShopTitle() {
 		// Skapa en instans av Chrome-webbläsaren med Selenium
@@ -49,7 +49,7 @@ class ProduktapiApplicationTests {}
 		}
 		driver.quit();
 
-	}
+	}}
   /*
 	@Test
 	public void checkIfTheBackPackPriceIsRight() {
