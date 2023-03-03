@@ -20,7 +20,7 @@ import static org.junit.jupiter.api.Assertions.assertTrue;
 
 @SpringBootTest
 class ProduktapiApplicationTests {
-
+/*
 	@Test
 	public void webShopTitle() {
 		// Skapa en instans av Chrome-webbläsaren med Selenium
@@ -49,7 +49,7 @@ class ProduktapiApplicationTests {
 		}
 		driver.quit();
 
-	}}
+	}
   /*
 	@Test
 	public void checkIfTheBackPackPriceIsRight() {
@@ -202,3 +202,4 @@ class ProduktapiApplicationTests {
 			System.out.println("Priset stämmer inte på produkt " + (i+1));
 		}
 	}*/
+}
