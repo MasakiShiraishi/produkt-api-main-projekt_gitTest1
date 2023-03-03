@@ -124,6 +124,35 @@ class ProduktapiApplicationTests {
 		System.out.println(actualCategoryNames);
 		driver.quit();
 	}
+	/*@Test
+	public void testCategories3() {
+		WebDriver driver = new ChromeDriver();
+		driver.get("https://java22.netlify.app/");
+
+		List<WebElement> categoryElements1 = driver.findElements(By.xpath("//*[@id=\"root\"]/div/div[2]/a"));
+		List<WebElement> categoryElements2 = driver.findElements(By.xpath("//*[@id=\"root\"]/div/div[3]/a"));
+		List<WebElement> categoryElements3 = driver.findElements(By.xpath("//*[@id=\"root\"]/div/div[4]/a"));
+		List<WebElement> categoryElements4 = driver.findElements(By.xpath("//*[@id=\"root\"]/div/div[5]/a"));
+
+		List<String> actualCategoryNames = new ArrayList<String>();
+		for (WebElement categoryElement : categoryElements1) {
+			actualCategoryNames.add(categoryElement.getText());
+		}
+		for (WebElement categoryElement : categoryElements2) {
+			actualCategoryNames.add(categoryElement.getText());
+		}
+		for (WebElement categoryElement : categoryElements3) {
+			actualCategoryNames.add(categoryElement.getText());
+		}
+		for (WebElement categoryElement : categoryElements4) {
+			actualCategoryNames.add(categoryElement.getText());
+		}
+
+		List<String> expectedCategoryNames = Arrays.asList("electronics", "jewelery", "men's clothing", "women's clothing");
+		assertEquals(expectedCategoryNames, actualCategoryNames);
+		System.out.println("Test categories are: " + actualCategoryNames);
+		driver.quit();
+	}*/
 
 }
 
