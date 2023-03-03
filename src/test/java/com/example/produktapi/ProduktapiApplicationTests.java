@@ -47,7 +47,7 @@ class ProduktapiApplicationTests {
 		} else {
 			System.out.println("Antalet produkter stämmer inte");
 		}
-		//driver.quit();
+		driver.quit();
 
 	}
   /*
@@ -72,7 +72,7 @@ class ProduktapiApplicationTests {
 	@Test
 	public void checkIfTheBackPackPriceIsRight1() {
 		//System.setProperty("webdriver.chrome.driver", "C:\\WebDriver\\bin\\chromedriver.exe");
-		WebDriver driver = new ChromeDriver();
+		WebDriver driver = new EdgeDriver();
 
 		driver.get("https://java22.netlify.app/");
 
@@ -85,7 +85,7 @@ class ProduktapiApplicationTests {
 		assertEquals("109.95", digits);
 		System.out.println("TEST is text: " + text);
 		System.out.println("Price is: " + digits);
-		//driver.quit();
+		driver.quit();
 	}
 
 	/*
@@ -154,7 +154,7 @@ class ProduktapiApplicationTests {
 		List<String> expectedCategoryNames = Arrays.asList("electronics", "jewelery", "men's clothing", "women's clothing");
 		assertEquals(expectedCategoryNames, actualCategoryNames);
 		System.out.println("Test categories are: " + actualCategoryNames);
-		//driver.quit();
+		driver.quit();
 	}
 
 }
