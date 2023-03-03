@@ -48,6 +48,7 @@ class ProduktapiApplicationTests {
 			System.out.println("Antalet produkter stämmer inte");
 		}
 		//driver.quit();
+		driver.close();
 
 	}
 
