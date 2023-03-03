@@ -18,12 +18,7 @@ public class ProductService {
         this.productRepository = productRepository;
     }
 
-    public List<Product> getAllProducts(/*Interger number*/) {
-      /*  if(number == 2){
-            productRepository.findAll();} */
-        productRepository.findAll();
-        productRepository.findAll();
-        productRepository.findAll();
+    public List<Product> getAllProducts() {
         return productRepository.findAll();
     }
 
