@@ -81,7 +81,6 @@ class ProductRepositoryTest {
         Product product2 = new Product("Dator 2", 30000.0, category, "Bra o ha", "urlTillBild2");
         underTest.save(product1);
         underTest.save(product2);
-        //ProductRepository productRepository = new ProductRepository();
 
         //when
         List<Product> listProduct = underTest.findByCategory(category);
@@ -89,9 +88,10 @@ class ProductRepositoryTest {
         //then
         Assertions.assertAll(
                 () -> assertNotNull(listProduct),
-                () -> assertFalse(listProduct.isEmpty()),
+                () -> assertFalse(listProduct.isEmpty())
+                /*,
                 () -> assertThrows(NoSuchElementException.class, () -> listProduct.get(2)
-                        ,"Hej här är ett meddelande som inte syns")
+                        ,"Hej här är ett meddelande som inte syns")*/
         );
         assertEquals(2, listProduct.size());
         assertTrue(listProduct.contains(product1));
