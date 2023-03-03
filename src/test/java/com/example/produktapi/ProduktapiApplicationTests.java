@@ -108,6 +108,7 @@ class ProduktapiApplicationTests {
 		}*/
 	@Test
 	public void testCategories2() {
+		System.setProperty("webdriver.chrome.driver", "C:\\WebDriver\\bin\\chromedriver.exe");
 		WebDriver driver = new ChromeDriver();
 		driver.get("https://java22.netlify.app/");
 
