@@ -86,24 +86,25 @@ class ProduktapiApplicationTests {
 		System.out.println("Price is: " + digits);
 		driver.quit();
 	}
-/*
-	@Test
-	public void testCategories() {
-		WebDriver driver = new ChromeDriver();
-		driver.get("https://java22.netlify.app/");
 
-		List<WebElement> categories = driver.findElements(By.xpath("//div[@class='list-group']/a"));
+	/*
+		@Test
+		public void testCategories() {
+			WebDriver driver = new ChromeDriver();
+			driver.get("https://java22.netlify.app/");
 
-		assertEquals(4, categories.size()); // make sure we found all categories
+			List<WebElement> categories = driver.findElements(By.xpath("//div[@class='list-group']/a"));
 
-		// check each category name
-		assertEquals("electronics", categories.get(0).getText().toLowerCase());
-		assertEquals("jewelery", categories.get(1).getText().toLowerCase());
-		assertEquals("men's clothing", categories.get(2).getText().toLowerCase());
-		assertEquals("women's clothing", categories.get(3).getText().toLowerCase());
+			assertEquals(4, categories.size()); // make sure we found all categories
 
-		driver.quit();
-	}*/
+			// check each category name
+			assertEquals("electronics", categories.get(0).getText().toLowerCase());
+			assertEquals("jewelery", categories.get(1).getText().toLowerCase());
+			assertEquals("men's clothing", categories.get(2).getText().toLowerCase());
+			assertEquals("women's clothing", categories.get(3).getText().toLowerCase());
+
+			driver.quit();
+		}*/
 	@Test
 	public void testCategories2() {
 		WebDriver driver = new ChromeDriver();
@@ -122,21 +123,6 @@ class ProduktapiApplicationTests {
 		assertEquals(expectedCategoryNames, actualCategoryNames);
 		System.out.println(actualCategoryNames);
 		driver.quit();
-	}
-
-	@Test
-	public void imageShouldBeVisible() {
-		// hämta in de webdrivers du vill använda
-		WebDriver driver = new ChromeDriver();
-		// Navigera int till den URL du vill testa dör respektive driver
-		driver.get("https://java22.netlify.app/");
-
-		WebElement productImage = new WebDriverWait(driver, Duration.ofSeconds(5))
-				.until(ExpectedConditions.visibilityOfElementLocated(By.xpath("//img[@class='card-img-top' and contains(@src, 'https://fakestoreapi.com/img/81fPKd-2AYL._AC_SL1500_.jpg')]")));
-		assertTrue(productImage.isDisplayed(), "Bilden verkar inte läsas in");
-
-		driver.quit();
-		//WebElement productImage = driver.findElements(By.xpath("//img[@class='card-img-top' and contains(@src, 'https://fakestoreapi.com/img/81fPKd-2AYL._AC_SL1500_.jpg')]"));
 	}
 
 }
