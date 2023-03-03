@@ -2,7 +2,6 @@ package com.example.produktapi;
 
 import org.junit.jupiter.api.Test;
 import org.openqa.selenium.By;
-import org.openqa.selenium.TimeoutException;
 import org.openqa.selenium.WebDriver;
 
 import org.openqa.selenium.WebElement;
@@ -15,9 +14,7 @@ import org.springframework.boot.test.context.SpringBootTest;
 import java.time.Duration;
 import java.util.*;
 
-
-import static org.junit.jupiter.api.Assertions.assertEquals;
-import static org.junit.jupiter.api.Assertions.assertTrue;
+import static org.junit.jupiter.api.Assertions.*;
 
 @SpringBootTest
 class ProduktapiApplicationTests {
@@ -58,6 +55,60 @@ class ProduktapiApplicationTests {
 		System.setProperty("webdriver.edge.driver", "C:\\WebDriver\\bin\\msedgedriver.exe");
 		WebDriver driver = new EdgeDriver();
 
+		driver.get("https://java22.netlify.app/");
+
+		WebElement waiter = new WebDriverWait(driver, java.time.Duration.ofSeconds(10))
+				.until(ExpectedConditions.visibilityOfElementLocated(
+						By.xpath("/html/body/div/div/div[6]/div/div/div/div[1]/div/div/p")));
+		String text = waiter.getText();
+		String digits = text.replaceAll("[^0-9.]", "");
+
+		assertEquals("109.95", digits);
+		System.out.println("TEST is text: " + text);
+		System.out.println("Price is: " + digits);
+		driver.quit();
+	}
+	@Test
+	public void checkImagesOnProducts() {
+		// Set up the driver
+		System.setProperty("webdriver.edge.driver", "C:\\WebDriver\\bin\\msedgedriver.exe");
+		WebDriver driver = new EdgeDriver();
+
+		// Navigate to the web page to be tested
+		driver.get("https://java22.netlify.app/");
+
+		// Find the products
+		List<WebElement> products = driver.findElements(By.className("productItem"));
+
+		// Check the images on at least 3 products
+		int count = 0;
+		for (WebElement product : products) {
+			// Find the image element and get its src attribute
+			WebElement image = product.findElement(By.tagName("img"));
+			String src = image.getAttribute("src");
+
+			// Check that the image is displayed
+			assertTrue(image.isDisplayed());
+
+			// Check that the src attribute is not empty
+			assertFalse(src.isEmpty());
+
+			// Increment the count
+			count++;
+			if (count >= 3) {
+				break;
+			}
+		}
+
+		// Quit the driver
+		driver.quit();
+	}
+	/*
+	@Test
+	public void checkIfTheBackPackPriceIsRight() {
+		System.setProperty("webdriver.edge.driver", "C:\\WebDriver\\bin\\msedgedriver.exe");
+		WebDriver driver = new EdgeDriver();
+
 		try {
 			driver.get("https://java22.netlify.app/");
 
@@ -77,7 +128,7 @@ class ProduktapiApplicationTests {
 		} finally {
 			driver.quit();
 		}
-	}
+	}*/
 /*
 	@Test
 	public void checkIfTheBackPackPriceIsRight1() {
