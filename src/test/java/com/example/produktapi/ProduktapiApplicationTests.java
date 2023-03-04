@@ -30,7 +30,7 @@ class ProduktapiApplicationTests {
 		driver.get("https://java22.netlify.app/");
 
 		// Kontrollera att webbplatsens titel stämmer
-		String expectedTitle = "Webbutik";
+		String expectedTitle = "Webbutik11";
 		String actualTitle = driver.getTitle();
 		if (expectedTitle.equals(actualTitle)) {
 			System.out.println("Webbplatsens titel stämmer");
