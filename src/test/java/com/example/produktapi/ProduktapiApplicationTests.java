@@ -24,7 +24,7 @@ class ProduktapiApplicationTests {
 	public void webShopTitle() {
 		// Skapa en instans av Chrome-webbläsaren med Selenium
 		//System.setProperty("webdriver.edge.driver", "C:\\WebDriver\\bin\\msedgedriver.exe");
-		WebDriver driver = new EdgeDriver();
+		WebDriver driver = new ChromeDriver();
 
 		// Gå till webbplatsen som ska testas
 		driver.get("https://java22.netlify.app/");
@@ -54,7 +54,7 @@ class ProduktapiApplicationTests {
 	@Test
 	public void checkIfTheBackPackPriceIsRight() {
 		//System.setProperty("webdriver.edge.driver", "C:\\WebDriver\\bin\\msedgedriver.exe");
-		WebDriver driver = new EdgeDriver();
+		WebDriver driver = new ChromeDriver();
 
 		driver.get("https://java22.netlify.app/");
 
@@ -73,7 +73,7 @@ class ProduktapiApplicationTests {
 	public void checkImagesOnProducts() {
 		// Set up the driver
 		//System.setProperty("webdriver.edge.driver", "C:\\WebDriver\\bin\\msedgedriver.exe");
-		WebDriver driver = new EdgeDriver();
+		WebDriver driver = new ChromeDriver();
 
 		// Navigate to the web page to be tested
 		driver.get("https://java22.netlify.app/");
