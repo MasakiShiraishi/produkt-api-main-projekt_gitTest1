@@ -7,6 +7,7 @@ import org.openqa.selenium.WebDriver;
 
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.chrome.ChromeDriver;
+import org.openqa.selenium.chrome.ChromeOptions;
 import org.openqa.selenium.edge.EdgeDriver;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
@@ -65,6 +66,31 @@ class ProduktapiApplicationTests {
 		String digits = text.replaceAll("[^0-9.]", "");
 
 		assertEquals("109.9", digits);
+		System.out.println("TEST is text: " + text);
+		System.out.println("Price is: " + digits);
+		driver.quit();
+	}
+	@Test
+	public void checkIfTheBackPackPriceIsRight_withaddArguments() {
+		System.setProperty("webdriver.chrome.driver", "C:\\WebDriver\\bin\\chromedriver.exe");
+		ChromeOptions options = new ChromeOptions();
+		options.addArguments("start-maximized"); // open Browser in maximized mode
+		options.addArguments("disable-infobars"); // disabling infobars
+		options.addArguments("--disable-extensions"); // disabling extensions
+		options.addArguments("--disable-gpu"); // applicable to windows os only
+		options.addArguments("--disable-dev-shm-usage"); // overcome limited resource problems
+		options.addArguments("--no-sandbox"); // Bypass OS security model
+		WebDriver driver = new ChromeDriver(options);
+
+		driver.get("https://java22.netlify.app/");
+
+		WebElement waiter = new WebDriverWait(driver, java.time.Duration.ofSeconds(10))
+				.until(ExpectedConditions.visibilityOfElementLocated(
+						By.xpath("/html/body/div/div/div[6]/div/div/div/div[1]/div/div/p")));
+		String text = waiter.getText();
+		String digits = text.replaceAll("[^0-9.]", "");
+
+		assertEquals("109.95", digits);
 		System.out.println("TEST is text: " + text);
 		System.out.println("Price is: " + digits);
 		driver.quit();
