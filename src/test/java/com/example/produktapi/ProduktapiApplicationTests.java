@@ -54,7 +54,7 @@ class ProduktapiApplicationTests {
 
 	@Test  //java.lang.IllegalStateException
 	public void checkIfTheBackPackPriceIsRight() {
-		//System.setProperty("webdriver.edge.driver", "C:\\WebDriver\\bin\\msedgedriver.exe");
+		System.setProperty("webdriver.chrom.driver", "C:\\WebDriver\\bin\\chromedriver.exe");
 		WebDriver driver = new ChromeDriver();
 
 		driver.get("https://java22.netlify.app/");
