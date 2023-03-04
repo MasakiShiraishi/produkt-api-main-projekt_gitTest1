@@ -18,10 +18,10 @@ import java.util.*;
 
 import static org.junit.jupiter.api.Assertions.*;
 
-@SpringBootTest
+//@SpringBootTest
 class ProduktapiApplicationTests {
 
-	@Test
+	@Test   //java.lang.IllegalStateException
 	public void webShopTitle() {
 		// Skapa en instans av Chrome-webbläsaren med Selenium
 		//System.setProperty("webdriver.edge.driver", "C:\\WebDriver\\bin\\msedgedriver.exe");
@@ -52,7 +52,7 @@ class ProduktapiApplicationTests {
 
 	}
 
-	@Test
+	@Test  //java.lang.IllegalStateException
 	public void checkIfTheBackPackPriceIsRight() {
 		//System.setProperty("webdriver.edge.driver", "C:\\WebDriver\\bin\\msedgedriver.exe");
 		WebDriver driver = new ChromeDriver();
@@ -95,7 +95,7 @@ class ProduktapiApplicationTests {
 		System.out.println("Price is: " + digits);
 		driver.quit();
 	}
-	@Test
+	@Test   //java.lang.IllegalStateException
 	public void checkImagesOnProducts() {
 		// Set up the driver
 		//System.setProperty("webdriver.edge.driver", "C:\\WebDriver\\bin\\msedgedriver.exe");
@@ -130,7 +130,7 @@ class ProduktapiApplicationTests {
 		driver.quit();
 	}
 
-	@Test
+	@Test  //org.openqa.selenium.SessionNotCreatedException
 	public void checkIfTheBackPackPriceIsRightTimeoutException() {
 		//System.setProperty("webdriver.edge.driver", "C:\\WebDriver\\bin\\msedgedriver.exe");
 		WebDriver driver = new EdgeDriver();
