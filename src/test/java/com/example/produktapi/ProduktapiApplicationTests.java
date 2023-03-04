@@ -18,7 +18,7 @@ import java.util.*;
 
 import static org.junit.jupiter.api.Assertions.*;
 
-//@SpringBootTest
+@SpringBootTest
 class ProduktapiApplicationTests {
 
 	@Test   //java.lang.IllegalStateException
@@ -59,18 +59,18 @@ class ProduktapiApplicationTests {
 
 		driver.get("https://java22.netlify.app/");
 
-		WebElement waiter = new WebDriverWait(driver, java.time.Duration.ofSeconds(10))
+		WebElement waiter = new WebDriverWait(driver, java.time.Duration.ofSeconds(25))
 				.until(ExpectedConditions.visibilityOfElementLocated(
 						By.xpath("/html/body/div/div/div[6]/div/div/div/div[1]/div/div/p")));
 		String text = waiter.getText();
 		String digits = text.replaceAll("[^0-9.]", "");
 
-		assertEquals("109.9", digits);
+		assertEquals("109.95", digits);
 		System.out.println("TEST is text: " + text);
 		System.out.println("Price is: " + digits);
 		driver.quit();
 	}
-	@Test
+	@Test  //org.openqa.selenium.SessionNotCreatedException
 	public void checkIfTheBackPackPriceIsRight_withaddArguments() {
 		System.setProperty("webdriver.chrome.driver", "C:\\WebDriver\\bin\\chromedriver.exe");
 		ChromeOptions options = new ChromeOptions();
@@ -130,7 +130,7 @@ class ProduktapiApplicationTests {
 		driver.quit();
 	}
 
-	@Test  //org.openqa.selenium.SessionNotCreatedException
+	@Test     //org.openqa.selenium.SessionNotCreatedException
 	public void checkIfTheBackPackPriceIsRightTimeoutException() {
 		//System.setProperty("webdriver.edge.driver", "C:\\WebDriver\\bin\\msedgedriver.exe");
 		WebDriver driver = new EdgeDriver();
