@@ -59,7 +59,7 @@ class ProduktapiApplicationTests {
 
 		driver.get("https://java22.netlify.app/");
 
-		WebElement waiter = new WebDriverWait(driver, java.time.Duration.ofSeconds(25))
+		WebElement waiter = new WebDriverWait(driver, java.time.Duration.ofSeconds(15))
 				.until(ExpectedConditions.visibilityOfElementLocated(
 						By.xpath("/html/body/div/div/div[6]/div/div/div/div[1]/div/div/p")));
 		String text = waiter.getText();
