@@ -155,6 +155,83 @@ class ProduktapiApplicationTests {
 			driver.quit();
 		}
 	}
+
+	@Test
+	public void verifyProductNamesOnPage(){
+		WebDriver driver = new ChromeDriver();
+		driver.get("https://java22.netlify.app/");
+
+		List<WebElement> products = driver.findElements(By.className("card-title"));
+
+		for (WebElement product : products) {
+			//String expectedName = getProductExpectedName(product); // replace this method with your own logic to get the expected name for the product
+			String actualName = product.getText();
+
+			System.out.println(product.getText());
+
+
+			/*if (!actualName.equals(expectedName)) {
+				System.out.println("Product " + actualName + " has incorrect name.");
+			}*/
+		}
+
+
+		driver.quit();
+	}
+	private String getProductExpectedName(WebElement product) {
+		// replace this method with your own logic to get the expected name for the product
+		return "Expected Product Name";
+	}
+	@Test
+	public void dddddd(){
+		WebDriver driver = new ChromeDriver();
+
+		// Navigera till webbplatsen som ska testas
+		driver.get("http://exempelwebbplats.com");
+
+		// Hämta referenser till de klickbara produktkategorierna
+		WebElement kategori1 = driver.findElement(By.xpath("//div[@class='kategori1']"));
+		WebElement kategori2 = driver.findElement(By.xpath("//div[@class='kategori2']"));
+		WebElement kategori3 = driver.findElement(By.xpath("//div[@class='kategori3']"));
+
+		// Skapa en lista med förväntade antal produkter för varje produktkategori
+		int[] forvantade_antal = {5, 10, 15};
+
+		// Loopa igenom varje produktkategori och testa att rätt antal produkter visas
+		WebElement antalProdukter;
+		int antalProdukterInt;
+		for (int i = 0; i < forvantade_antal.length; i++) {
+			// Klicka på produktkategorin
+			switch(i) {
+				case 0:
+					kategori1.click();
+					break;
+				case 1:
+					kategori2.click();
+					break;
+				case 2:
+					kategori3.click();
+					break;
+				default:
+					break;
+			}
+
+			// Hämta antalet produkter som visas i listan
+			antalProdukter = driver.findElement(By.xpath("//div[@class='produkt']"));
+			antalProdukterInt = Integer.parseInt(antalProdukter.getText());
+
+			// Jämför det hämtade antalet produkter med det förväntade antalet produkter
+			if (antalProdukterInt == forvantade_antal[i]) {
+				System.out.println("Produktkategori " + (i+1) + " testad: Rätt antal produkter visas");
+			} else {
+				System.out.println("Produktkategori " + (i+1) + " testad: Fel antal produkter visas");
+			}
+		}
+
+		// Stäng webbläsarinstansen
+		driver.quit();
+	}
+	}
 /*
 	@Test
 	public void checkIfTheBackPackPriceIsRight1() {
@@ -289,4 +366,3 @@ class ProduktapiApplicationTests {
 			System.out.println("Priset stämmer inte på produkt " + (i+1));
 		}
 	}*/
-}
