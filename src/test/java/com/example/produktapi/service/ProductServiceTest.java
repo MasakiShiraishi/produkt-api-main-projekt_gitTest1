@@ -174,20 +174,5 @@ class ProductServiceTest {
         verify(repository, times(1)).findById(productId);
         verify(repository, times(1)).deleteById(productId);
     }
-/*
-    @Test
-    void deleteProductShouldThrowEntityNotFoundExceptionWhenProductNotFound() {
-        // given
-        int productId = 1;
 
-        when(repository.findById(productId)).thenReturn(Optional.empty());
-
-        // when
-        EntityNotFoundException exception = assertThrows(EntityNotFoundException.class, () -> underTest.deleteProduct(productId));
-
-        // then
-        assertEquals(exception.getMessage(), "Product not found with id: " + productId);
-        verify(repository, times(1)).findById(productId);
-        verify(repository, never()).deleteById(any());
-    }*/
 }

@@ -22,10 +22,9 @@ import static org.junit.jupiter.api.Assertions.*;
 class ProduktapiApplicationTests {
 
 	@Test
-	@Disabled//java.lang.IllegalStateException
+	@Disabled
 	public void webShopTitle() {
 		// Skapa en instans av Chrome-webbläsaren med Selenium
-		//System.setProperty("webdriver.edge.driver", "C:\\WebDriver\\bin\\msedgedriver.exe");
 		WebDriver driver = new ChromeDriver();
 
 		// Gå till webbplatsen som ska testas
@@ -43,7 +42,7 @@ class ProduktapiApplicationTests {
 		// Kolla att det totala antalet produkter stämmer
 		List<WebElement> products = driver.findElements(By.className("productItem"));
 		int expectedProductCount = 20;
-		System.out.println(products);
+
 		int actualProductCount = products.size();
 		if (expectedProductCount == actualProductCount) {
 			System.out.println("Antalet produkter stämmer");
@@ -53,13 +52,13 @@ class ProduktapiApplicationTests {
 		driver.quit();
 	}
 	@Test
-	@Disabled//java.lang.IllegalStateException
+	@Disabled
 	public void checkIfTheThreeProductsPriceIsRight() {
 		//System.setProperty("webdriver.chrom.driver", "C:\\WebDriver\\bin\\chromedriver.exe");
-		WebDriver driver = new EdgeDriver();
+		WebDriver driver = new ChromeDriver();
 
 		driver.get("https://java22.netlify.app/");
-		//List<WebElement> waiter = new WebDriverWait(driver, java.time.Duration.ofSeconds(15)).until(ExpectedConditions.visibilityOfElementLocated(By.tagName("p")));
+
 		WebElement product1 = new WebDriverWait(driver, java.time.Duration.ofSeconds(15))
 				.until(ExpectedConditions.visibilityOfElementLocated(
 						By.xpath("/html/body/div/div/div[6]/div/div/div/div[1]/div/div/p")));
@@ -81,63 +80,8 @@ class ProduktapiApplicationTests {
 		assertEquals("55.99", price5599);
 		System.out.println("Price is: " + "\n" + price10995 + "\n" + price223 + "\n" + price5599);
 
-		List<WebElement> productsPrices = new WebDriverWait(driver, java.time.Duration.ofSeconds(15))
-				.until(ExpectedConditions.visibilityOfAllElementsLocatedBy(
-						By.className("card-text")));
-		for (WebElement productsPrice : productsPrices) {
-			System.out.println(productsPrice);
-		}
 		driver.quit();
 	}
-/*
-	@Test  //java.lang.IllegalStateException
-	public void checkIfTheBackPackPriceIsRight() {
-		System.setProperty("webdriver.chrom.driver", "C:\\WebDriver\\bin\\chromedriver.exe");
-		WebDriver driver = new ChromeDriver();
-
-		driver.get("https://java22.netlify.app/");
-
-		WebElement waiter = new WebDriverWait(driver, java.time.Duration.ofSeconds(15))
-				.until(ExpectedConditions.visibilityOfElementLocated(
-						By.xpath("/html/body/div/div/div[6]/div/div/div/div[1]/div/div/p")));
-		String text = waiter.getText();
-		String digits = text.replaceAll("[^0-9.]", "");
-
-		assertEquals("109.95", digits);
-		System.out.println("TEST is text: " + text);
-		System.out.println("Price is: " + digits);
-		driver.quit();
-	}
-
-	@Test  //org.openqa.selenium.SessionNotCreatedException
-	public void checkIfTheBackPackPriceIsRight_withaddArguments() {
-		System.setProperty("webdriver.chrome.driver", "C:\\WebDriver\\bin\\chromedriver.exe");
-		ChromeOptions options = new ChromeOptions();
-		options.addArguments("start-maximized"); // open Browser in maximized mode
-		options.addArguments("disable-infobars"); // disabling infobars
-		options.addArguments("--disable-extensions"); // disabling extensions
-		options.addArguments("--disable-gpu"); // applicable to windows os only
-		options.addArguments("--disable-dev-shm-usage"); // overcome limited resource problems
-		options.addArguments("--no-sandbox"); // Bypass OS security model
-		WebDriver driver = new ChromeDriver(options);
-
-		driver.get("https://java22.netlify.app/");
-
-		WebElement waiter = new WebDriverWait(driver, java.time.Duration.ofSeconds(10))
-				.until(ExpectedConditions.visibilityOfElementLocated(
-						By.xpath("/html/body/div/div/div[6]/div/div/div/div[1]/div/div/p")));
-		String text = waiter.getText();
-		String digits = text.replaceAll("[^0-9.]", "");
-
-		assertEquals("109.95", digits);
-		System.out.println("TEST is text: " + text);
-		System.out.println("Price is: " + digits);
-		driver.quit();
-	}*/
-
-
-
-
 	@Test
 	@Disabled
 	public void testCategoriesTotal_withForEachLoop(){
@@ -155,16 +99,16 @@ class ProduktapiApplicationTests {
 	@Test
 	@Disabled
 	public void testCategories_withMenuLink() {
-		//System.setProperty("webdriver.chrome.driver", "C:\\WebDriver\\bin\\chromedriver.exe");
-		WebDriver driver = new EdgeDriver();
+		WebDriver driver = new ChromeDriver();
 		driver.get("https://java22.netlify.app/");
 
 		List<WebElement> categoryElements =
 				driver.findElements(By.className("menuLink"));
-		System.out.println(categoryElements);
+
 		List<String> actualCategoryNames = new ArrayList<String>();
 		for (WebElement categoryElement : categoryElements) {
 			actualCategoryNames.add(categoryElement.getText());
+			System.out.println(categoryElement.getText());
 		}
 
 		List<String> expectedCategoryNames = Arrays.asList("electronics", "jewelery", "men's clothing", "women's clothing");
@@ -179,7 +123,7 @@ class ProduktapiApplicationTests {
 		WebDriver driver = new ChromeDriver();
 		driver.get("https://java22.netlify.app/");
 
-		List<WebElement> categoryElectronics = driver.findElements(By.xpath("/html/body/div/div/div[2]/a"));
+		List<WebElement> categoryElectronics = driver.findElements(By.xpath("//*[@id=\"root\"]/div/div[2]/a"));
 		List<WebElement> categoryJewelery = driver.findElements(By.xpath("//*[@id=\"root\"]/div/div[3]/a"));
 		List<WebElement> categoryMens = driver.findElements(By.xpath("//*[@id=\"root\"]/div/div[4]/a"));
 		List<WebElement> categoryWomens = driver.findElements(By.xpath("//*[@id=\"root\"]/div/div[5]/a"));
@@ -205,9 +149,23 @@ class ProduktapiApplicationTests {
 		driver.quit();
 	}
 
-	@Test
+    @Test
+    @Disabled
+    public void checkAllProductNameAndPrice(){
+	WebDriver driver = new ChromeDriver();
+	driver.get("https://java22.netlify.app/");
+	List<WebElement> productsPrices = new WebDriverWait(driver, java.time.Duration.ofSeconds(15))
+			.until(ExpectedConditions.visibilityOfAllElementsLocatedBy(
+					By.className("card-text")));
+	for (WebElement productsPrice : productsPrices) {
+		System.out.println(productsPrice.getText());
+
+	}
+
+}
+    @Test
 	@Disabled
-	public void verifyProductPrices() {
+	public void verifySixProductsPrices() {
 		System.setProperty("webdriver.chrome.driver", "C:\\WebDriver\\bin\\chromedriver.exe");
 		WebDriver driver = new ChromeDriver();
 		driver.get("https://java22.netlify.app/");
@@ -218,11 +176,12 @@ class ProduktapiApplicationTests {
 			WebElement titleElement = product.findElement(By.className("card-title"));
 			String title = titleElement.getText();
 
-			WebElement priceElement = product.findElement(By.className("card-text"));
-			String priceText = priceElement.getText();
+			WebElement productsPrice = product.findElement(By.className("card-text"));
+			String priceText = productsPrice.getText();
+			//System.out.println(priceText);
 			double price = Double.parseDouble(priceText.replaceAll("[^0-9.]+", ""));
 			double price2 = Double.parseDouble(priceText.replaceAll("[^0-9.]+", "").replaceFirst("\\.", ""));
-
+			//System.out.println(price +" "+ "\nThis is price with replaceFirst: " +price2);
 			if (title.contains("Fjallraven - Foldsack No. 1 Backpack, Fits 15 Laptops")) {
 				assertEquals(109.95, price, 0.01);
 			} else if (title.contains("Mens Casual Premium Slim Fit T-Shirts")) {
@@ -238,9 +197,9 @@ class ProduktapiApplicationTests {
 			}  else {fail("Unexpected product title: " + title);
 			}
 		}
-
 		driver.quit();
 	}
+
 
 	@Test
 	@Disabled
@@ -250,21 +209,19 @@ class ProduktapiApplicationTests {
 
 		List<WebElement> products = driver.findElements(By.className("card-title"));
 
-		for (WebElement product : products) {
-			System.out.println(product.getText());
+			for (WebElement product : products) {
+			System.out.println("Product: " +  product.getText());
 		}
 		driver.quit();
 	}
 
 	@Test
-	@Disabled//lyckas
+	@Disabled
 	public void testAllProductInCategories() {
-		// Skapa en instans av webbläsaren och vänta på att sidan laddas
 		WebDriver driver = new ChromeDriver();
-		WebDriverWait wait = new WebDriverWait(driver, java.time.Duration.ofSeconds(25));
+		WebDriverWait wait = new WebDriverWait(driver, java.time.Duration.ofSeconds(15));
 		driver.get("https://java22.netlify.app/");
 
-		// Hämta referenser till de klickbara produktkategorierna efter att de har laddats in i DOM
 		WebElement categoryElectronics = wait.until(ExpectedConditions.elementToBeClickable(By.xpath("//*[@id=\"root\"]/div/div[2]/a")));
 		WebElement categoryJewelry = wait.until(ExpectedConditions.elementToBeClickable(By.xpath("//*[@id=\"root\"]/div/div[3]/a")));
 		WebElement categoryMens = wait.until(ExpectedConditions.elementToBeClickable(By.xpath("//*[@id=\"root\"]/div/div[4]/a")));
@@ -275,7 +232,7 @@ class ProduktapiApplicationTests {
 
 		// Loopa igenom varje produktkategori och testa att rätt antal produkter visas
 		for (int i = 0; i < expectedTotal.length; i++) {
-			// Klicka på produktkategorin
+
 			switch(i) {
 				case 0:
 					categoryElectronics.click();
@@ -303,118 +260,69 @@ class ProduktapiApplicationTests {
 				System.out.println("Produktkategori " + (i+1) + " testad: Fel antal produkter visas");
 			}
 		}
-		// Stäng webbläsaren
 		driver.quit();
 	}
 
-	/*
 	@Test
-	public void testCategories3() {
+	@Disabled
+	public void checkImagesOnProducts2() {
 		WebDriver driver = new ChromeDriver();
+
+// Navigera till webbsidan
 		driver.get("https://java22.netlify.app/");
 
-		List<WebElement> categoryElements1 = driver.findElements(By.xpath("//*[@id=\"root\"]/div/div[2]/a"));
-		List<WebElement> categoryElements2 = driver.findElements(By.xpath("//*[@id=\"root\"]/div/div[3]/a"));
-		List<WebElement> categoryElements3 = driver.findElements(By.xpath("//*[@id=\"root\"]/div/div[4]/a"));
-		List<WebElement> categoryElements4 = driver.findElements(By.xpath("//*[@id=\"root\"]/div/div[5]/a"));
+		// Hämta alla produktbilder
+		List<WebElement> productImages = driver.findElements(By.cssSelector(".card-img-top"));
 
-		List<String> actualCategoryNames = new ArrayList<String>();
-		for (WebElement categoryElement : categoryElements1) {
-			actualCategoryNames.add(categoryElement.getText());
+		// Kontrollera att det finns minst 3 bilder
+		int numImages = productImages.size();
+		if (numImages >= 3) {
+			System.out.println("Det finns minst 3 produktbilder på sidan.");
+		} else {
+			System.out.println("Det finns färre än 3 produktbilder på sidan.");
 		}
-		for (WebElement categoryElement : categoryElements2) {
-			actualCategoryNames.add(categoryElement.getText());
-		}
-		for (WebElement categoryElement : categoryElements3) {
-			actualCategoryNames.add(categoryElement.getText());
-		}
-		for (WebElement categoryElement : categoryElements4) {
-			actualCategoryNames.add(categoryElement.getText());
-		}
-
-		List<String> expectedCategoryNames = Arrays.asList("electronics", "jewelery", "men's clothing", "women's clothing");
-		assertEquals(expectedCategoryNames, actualCategoryNames);
-		System.out.println("Test categories are: " + actualCategoryNames);
+         // Stäng webbläsarens instans
 		driver.quit();
 	}
-
-}*/
-
-	// Kontrollera att priset blir rätt på minst 3 produkter
-	/*for (int i = 0; i < 3; i++) {*/
-		/*WebElement product = products.get(0);
-		double expectedPrice = 22.3; // Byt ut detta med det förväntade priset
-		double actualPrice = Double.parseDouble(
-				product.findElement(By.xpath(
-						"//*[@id=\"productsContainer\"]/div/div[1]/div/div/p")).getText());
-
-				if (expectedPrice == actualPrice) {
-			System.out.println("Priset stämmer på produkt ");
-		} else {
-			System.out.println("Priset stämmer inte på produkt ");
-		}*/
-
-
-	// Hitta elementen som innehåller prisinformationen
-		/*List<WebElement> priceElements = driver.findElements(By.cssSelector(".price"));
-
-		// Kontrollera att det finns minst 3 produkter
-		assertTrue(priceElements.size() >= 3);
-
-		// Jämför priserna med förväntade värden för minst 3 produkter
-		assertEquals(109.95, priceElements.get(0).getText());
-		assertEquals(22.3, priceElements.get(1).getText());
-		assertEquals(55.9, priceElements.get(2).getText());
-
-		// Stäng webbläsaren
-		driver.quit();*/
-
-	/*// Kontrollera att priset blir rätt på minst 3 produkter
-       for (int i = 0; i < 3; i++) {
-		WebElement product = products.get(i);
-		double expectedPrice = 10.99; // Byt ut detta med det förväntade priset
-		double actualPrice = Double.parseDouble(product.findElement(By.className("price")).getText());
-		double actualPrice = Double.parseDouble(product.findElement(
-		By.xpath(".//p[contains(text(),'Pris')]/span")).getText());
-		if (expectedPrice == actualPrice) {
-			System.out.println("Priset stämmer på produkt " + (i+1));
-		} else {
-			System.out.println("Priset stämmer inte på produkt " + (i+1));
-		}
-	}*/
-	@Test
-	@Disabled//java.lang.IllegalStateException
+	/*@Test
+	@Disabled
 	public void checkImagesOnProducts() {
-		// Set up the driver
-		//System.setProperty("webdriver.edge.driver", "C:\\WebDriver\\bin\\msedgedriver.exe");
 		WebDriver driver = new ChromeDriver();
 
-		// Navigate to the web page to be tested
 		driver.get("https://java22.netlify.app/");
 
-		// Find the products
-		List<WebElement> products = driver.findElements(By.className("productItem"));
+		List<WebElement> products = driver.findElements(By.cssSelector(".productItem card"));
 
-		// Check the images on at least 3 products
-		int count = 0;
+		// Check the images on products
 		for (WebElement product : products) {
-			// Find the image element and get its src attribute
-			WebElement image = product.findElement(By.tagName("img"));
-			String src = image.getAttribute("src");
-
-			// Check that the image is displayed
-			assertTrue(image.isDisplayed());
+			WebElement image1 = product.findElement(By.xpath("//*[@id=\"productsContainer\"]/div/div[1]/div/img"));
+			String src1 = image1.getAttribute("src1");
+			WebElement image2 = product.findElement(By.xpath("//*[@id=\"productsContainer\"]/div/div[2]/div/img"));
+			String src2 = image2.getAttribute("src2");
+			WebElement image3 = product.findElement(By.xpath("//*[@id=\"productsContainer\"]/div/div[3]/div/img"));
+			String src3 = image3.getAttribute("src3");
+			System.out.println(src1 + src2 + src3);
 
 			// Check that the src attribute is not empty
-			assertFalse(src.isEmpty());
+			assertFalse(src1.isEmpty(), String.valueOf(src2.isEmpty()));
+            assertEquals("https://fakestoreapi.com/img/81fPKd-2AYL._AC_SL1500_.jpg", src1);
+			assertEquals("https://fakestoreapi.com/img/71-3HjGNDUL._AC_SY879._SX._UX._SY._UY_.jpg", src2);
+			assertEquals("https://fakestoreapi.com/img/71li-ujtlUL._AC_UX679_.jpg", src3);
 
-			// Increment the count
-			count++;
-			if (count >= 3) {
-				break;
-			}
 		}
 		// Quit the driver
 		driver.quit();
+	}*/
+	@Test
+	@Disabled
+	public void checkAllImagesPrintedDisplayed() {
+		WebDriver driver = new ChromeDriver();
+		driver.get("https://java22.netlify.app/");
+		List<WebElement> images = driver.findElements(By.tagName("img"));
+		for (WebElement image : images) {
+			String source = image.getAttribute("src");
+			System.out.println("Bildens källa är: " + source);
+		}
 	}
+
 }

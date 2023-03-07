@@ -89,9 +89,7 @@ class ProductRepositoryTest {
         Assertions.assertAll(
                 () -> assertNotNull(listProduct),
                 () -> assertFalse(listProduct.isEmpty())
-                /*,
-                () -> assertThrows(NoSuchElementException.class, () -> listProduct.get(2)
-                        ,"Hej här är ett meddelande som inte syns")*/
+
         );
         assertEquals(2, listProduct.size());
         assertTrue(listProduct.contains(product1));

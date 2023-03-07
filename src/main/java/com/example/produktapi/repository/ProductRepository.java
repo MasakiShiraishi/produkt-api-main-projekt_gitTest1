@@ -9,7 +9,7 @@ import java.util.Optional;
 
 public interface ProductRepository extends JpaRepository<Product, Integer> {
      List<Product> findByCategory(String category);
-    // { return null; }
+
 
     Optional<Product> findByTitle(String title);
 
