@@ -46,7 +46,7 @@ class ProduktapiApplicationTests {
 		@Test
 		@Disabled
 		public void totalProdukterTest() {
-			WebDriver driver = new ChromeDriver();
+			WebDriver driver = new EdgeDriver();
 
 			driver.get("https://java22.netlify.app/");
 
