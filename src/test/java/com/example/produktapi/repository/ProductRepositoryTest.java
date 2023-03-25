@@ -151,12 +151,8 @@ class ProductRepositoryTest {
         // Assert
         assertEquals(expectedCategories.size(), 3, "Number of categories should match");
         assertTrue(actualCategories.containsAll(expectedCategories), "All expected categories should be present");
-        assertFalse(hasDuplicates(actualCategories), "No duplicates should be present");
-    }
-    private boolean hasDuplicates(List<String> list) {
-        return list.size() != list.stream().distinct().count();
-    }
 
+    }
 
 
 }

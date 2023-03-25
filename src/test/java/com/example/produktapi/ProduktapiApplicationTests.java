@@ -22,10 +22,10 @@ import static org.junit.jupiter.api.Assertions.*;
 class ProduktapiApplicationTests {
 
 	@Test
-	@Disabled
+    @Disabled
 	public void webShopTitle() {
 		// Skapa en instans av Chrome-webbläsaren med Selenium
-		WebDriver driver = new ChromeDriver();
+		WebDriver driver = new EdgeDriver();
 
 		// Gå till webbplatsen som ska testas
 		driver.get("https://java22.netlify.app/");
@@ -33,24 +33,38 @@ class ProduktapiApplicationTests {
 		// Kontrollera att webbplatsens titel stämmer
 		String expectedTitle = "Webbutik";
 		String actualTitle = driver.getTitle();
+		assertEquals(expectedTitle, actualTitle, "Webbplatsens titel stämmer inte");
+
 		if (expectedTitle.equals(actualTitle)) {
 			System.out.println("Webbplatsens titel stämmer");
 		} else {
 			System.out.println("Webbplatsens titel stämmer inte");
 		}
 
+		driver.quit();
+	}
+		@Test
+		@Disabled
+		public void totalProdukterTest() {
+			WebDriver driver = new ChromeDriver();
+
+			driver.get("https://java22.netlify.app/");
+
 		// Kolla att det totala antalet produkter stämmer
 		List<WebElement> products = driver.findElements(By.className("productItem"));
 		int expectedProductCount = 20;
 
 		int actualProductCount = products.size();
-		if (expectedProductCount == actualProductCount) {
+			assertEquals(expectedProductCount, actualProductCount, "Antalet produkter stämmer inte");
+
+			if (expectedProductCount == actualProductCount) {
 			System.out.println("Antalet produkter stämmer");
 		} else {
 			System.out.println("Antalet produkter stämmer inte");
 		}
 		driver.quit();
 	}
+
 	@Test
 	@Disabled
 	public void checkIfTheThreeProductsPriceIsRight() {
@@ -78,6 +92,7 @@ class ProduktapiApplicationTests {
 		assertEquals("109.95", price10995);
 		assertEquals("22.3", price223);
 		assertEquals("55.99", price5599);
+		System.out.println(text);
 		System.out.println("Price is: " + "\n" + price10995 + "\n" + price223 + "\n" + price5599);
 
 		driver.quit();
@@ -150,7 +165,7 @@ class ProduktapiApplicationTests {
 	}
 
     @Test
-    @Disabled
+	@Disabled
     public void checkAllProductNameAndPrice(){
 	WebDriver driver = new ChromeDriver();
 	driver.get("https://java22.netlify.app/");
@@ -178,7 +193,7 @@ class ProduktapiApplicationTests {
 
 			WebElement productsPrice = product.findElement(By.className("card-text"));
 			String priceText = productsPrice.getText();
-			//System.out.println(priceText);
+			//System.out.println(priceText+ "\n");
 			double price = Double.parseDouble(priceText.replaceAll("[^0-9.]+", ""));
 			double price2 = Double.parseDouble(priceText.replaceAll("[^0-9.]+", "").replaceFirst("\\.", ""));
 			//System.out.println(price +" "+ "\nThis is price with replaceFirst: " +price2);
@@ -265,13 +280,12 @@ class ProduktapiApplicationTests {
 
 	@Test
 	@Disabled
-	public void checkImagesOnProducts2() {
+	public void checkImagesOnProducts() {
 		WebDriver driver = new ChromeDriver();
 
-// Navigera till webbsidan
 		driver.get("https://java22.netlify.app/");
 
-		// Hämta alla produktbilder
+
 		List<WebElement> productImages = driver.findElements(By.cssSelector(".card-img-top"));
 
 		// Kontrollera att det finns minst 3 bilder
@@ -281,8 +295,20 @@ class ProduktapiApplicationTests {
 		} else {
 			System.out.println("Det finns färre än 3 produktbilder på sidan.");
 		}
+		//System.out.println(productImages.size());
          // Stäng webbläsarens instans
 		driver.quit();
+	}
+	@Test
+	@Disabled
+	public void checkAllImagesPrintedDisplayed() {
+		WebDriver driver = new ChromeDriver();
+		driver.get("https://java22.netlify.app/");
+		List<WebElement> images = driver.findElements(By.tagName("img"));
+		for (WebElement image : images) {
+			String source = image.getAttribute("src");
+			System.out.println("Bildens källa är: " + source);
+		}
 	}
 	/*@Test
 	@Disabled
@@ -313,16 +339,6 @@ class ProduktapiApplicationTests {
 		// Quit the driver
 		driver.quit();
 	}*/
-	@Test
-	@Disabled
-	public void checkAllImagesPrintedDisplayed() {
-		WebDriver driver = new ChromeDriver();
-		driver.get("https://java22.netlify.app/");
-		List<WebElement> images = driver.findElements(By.tagName("img"));
-		for (WebElement image : images) {
-			String source = image.getAttribute("src");
-			System.out.println("Bildens källa är: " + source);
-		}
-	}
+
 
 }

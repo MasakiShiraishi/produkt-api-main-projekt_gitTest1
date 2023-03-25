@@ -25,7 +25,7 @@ class ProductServiceTest {
     @Mock
     private ProductRepository repository;
     @InjectMocks
-  private ProductService underTest;
+    private ProductService underTest;
 
     @Captor
     ArgumentCaptor<Product> productCaptor;
@@ -86,6 +86,7 @@ class ProductServiceTest {
         verify(repository, times(1)).findByTitle(title);
         verify(repository, never()).save(any());
         assertEquals("En produkt med titeln: vår test-titel finns redan", exception.getMessage());
+        System.out.println(exception.getMessage());
     }
 
     @Test   // normalföde 28/2
@@ -101,6 +102,7 @@ class ProductServiceTest {
 
         // then
         assertEquals(product, result);
+        //System.out.println(result);
     }
     @Test  //felflöde  28/2
     void getProductByIdShouldThrowExceptionWhenProductNotFound() {
@@ -113,11 +115,7 @@ class ProductServiceTest {
 
         // then
         assertEquals("Produkt med id " + productId + " hittades inte", thrown.getMessage());
-    }
-    @BeforeEach    // test för update & delete i 28/2
-    void setUp() {
-       /* repository = mock(ProductRepository.class);
-        underTest = new ProductService(repository);*/
+        //System.out.println(thrown.getMessage());
     }
 
     @Test
@@ -137,8 +135,10 @@ class ProductServiceTest {
         // then
         assertEquals(result, productToUpdate);
         assertNotEquals(10.0, productToUpdate.getPrice());
+        assertEquals(20.0, productToUpdate.getPrice());
         verify(repository, times(1)).findById(productId);
         verify(repository, times(1)).save(existingProduct);
+        System.out.println(result);
     }
 
     @Test
@@ -173,6 +173,21 @@ class ProductServiceTest {
         // then
         verify(repository, times(1)).findById(productId);
         verify(repository, times(1)).deleteById(productId);
+    }
+
+    @Test       //felflöde  24/3
+    void deleteProductShouldThrowExceptionWhenProductIdDoesNotExist() {
+        // given
+        int nonExistingProductId = 1;
+
+        when(repository.findById(nonExistingProductId)).thenReturn(Optional.empty());
+
+        // when
+        assertThrows(EntityNotFoundException.class, () -> underTest.deleteProduct(nonExistingProductId));
+
+        // then
+        verify(repository, times(1)).findById(nonExistingProductId);
+        verify(repository, times(0)).deleteById(nonExistingProductId);
     }
 
 }
