@@ -68,8 +68,7 @@ class ProduktapiApplicationTests {
 	@Test
 	@Disabled
 	public void checkIfTheThreeProductsPriceIsRight() {
-		//System.setProperty("webdriver.chrom.driver", "C:\\WebDriver\\bin\\chromedriver.exe");
-		WebDriver driver = new ChromeDriver();
+        WebDriver driver = new EdgeDriver();
 
 		driver.get("https://java22.netlify.app/");
 
@@ -100,7 +99,7 @@ class ProduktapiApplicationTests {
 	@Test
 	@Disabled
 	public void testCategoriesTotal_withForEachLoop(){
-		WebDriver driver = new ChromeDriver();
+        WebDriver driver = new EdgeDriver();
 		driver.get("https://java22.netlify.app/");
 
 		List<WebElement> categoryElements = driver.findElements(By.className("menuLink"));
@@ -114,7 +113,7 @@ class ProduktapiApplicationTests {
 	@Test
 	@Disabled
 	public void testCategories_withMenuLink() {
-		WebDriver driver = new ChromeDriver();
+        WebDriver driver = new EdgeDriver();
 		driver.get("https://java22.netlify.app/");
 
 		List<WebElement> categoryElements =
@@ -135,7 +134,7 @@ class ProduktapiApplicationTests {
 	@Test
 	@Disabled
 	public void testCategories_withEveryByXpath() {
-		WebDriver driver = new ChromeDriver();
+        WebDriver driver = new EdgeDriver();
 		driver.get("https://java22.netlify.app/");
 
 		List<WebElement> categoryElectronics = driver.findElements(By.xpath("//*[@id=\"root\"]/div/div[2]/a"));
@@ -167,7 +166,7 @@ class ProduktapiApplicationTests {
     @Test
 	@Disabled
     public void checkAllProductNameAndPrice(){
-	WebDriver driver = new ChromeDriver();
+        WebDriver driver = new EdgeDriver();
 	driver.get("https://java22.netlify.app/");
 	List<WebElement> productsPrices = new WebDriverWait(driver, java.time.Duration.ofSeconds(15))
 			.until(ExpectedConditions.visibilityOfAllElementsLocatedBy(
@@ -181,8 +180,7 @@ class ProduktapiApplicationTests {
     @Test
 	@Disabled
 	public void verifySixProductsPrices() {
-		System.setProperty("webdriver.chrome.driver", "C:\\WebDriver\\bin\\chromedriver.exe");
-		WebDriver driver = new ChromeDriver();
+        WebDriver driver = new EdgeDriver();
 		driver.get("https://java22.netlify.app/");
 
 		List<WebElement> products = driver.findElements(By.className("card"));
@@ -219,7 +217,7 @@ class ProduktapiApplicationTests {
 	@Test
 	@Disabled
 	public void verifyProductNamesOnPage(){
-		WebDriver driver = new ChromeDriver();
+        WebDriver driver = new EdgeDriver();
 		driver.get("https://java22.netlify.app/");
 
 		List<WebElement> products = driver.findElements(By.className("card-title"));
@@ -233,7 +231,7 @@ class ProduktapiApplicationTests {
 	@Test
 	@Disabled
 	public void testAllProductInCategories() {
-		WebDriver driver = new ChromeDriver();
+        WebDriver driver = new EdgeDriver();
 		WebDriverWait wait = new WebDriverWait(driver, java.time.Duration.ofSeconds(15));
 		driver.get("https://java22.netlify.app/");
 
@@ -281,7 +279,7 @@ class ProduktapiApplicationTests {
 	@Test
 	@Disabled
 	public void checkImagesOnProducts() {
-		WebDriver driver = new ChromeDriver();
+        WebDriver driver = new EdgeDriver();
 
 		driver.get("https://java22.netlify.app/");
 
@@ -302,7 +300,7 @@ class ProduktapiApplicationTests {
 	@Test
 	@Disabled
 	public void checkAllImagesPrintedDisplayed() {
-		WebDriver driver = new ChromeDriver();
+        WebDriver driver = new EdgeDriver();
 		driver.get("https://java22.netlify.app/");
 		List<WebElement> images = driver.findElements(By.tagName("img"));
 		for (WebElement image : images) {
@@ -313,7 +311,7 @@ class ProduktapiApplicationTests {
 	/*@Test
 	@Disabled
 	public void checkImagesOnProducts() {
-		WebDriver driver = new ChromeDriver();
+		WebDriver driver = new EdgeDriver();
 
 		driver.get("https://java22.netlify.app/");
 
